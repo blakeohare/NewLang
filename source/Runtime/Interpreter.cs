@@ -456,8 +456,9 @@ public static class Interpreter
                                                 sb.Append(RuntimeValue.ToSimpleString(args[i]));
                                             }
 
-                                            Console.WriteLine(sb.ToString());
+                                            str1 = sb.ToString();
                                             sb = null;
+                                            Console.WriteLine(str1);
                                             break;
 
                                         default:

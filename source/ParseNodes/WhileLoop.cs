@@ -23,6 +23,6 @@ public class WhileLoop : Statement
             bufCond, 
             ByteCodeRow.BufferOf(ByteCodeOp.POP_AND_JUMP_IF_FALSE, this.FirstToken, codeLength + 1), 
             bufCode, 
-            ByteCodeRow.BufferOf(ByteCodeOp.JUMP, null, -1 - codeLength - 1, - bufCode.Length));
+            ByteCodeRow.BufferOf(ByteCodeOp.JUMP, null, -1 - codeLength - 1 - bufCond.Length));
     }
 }

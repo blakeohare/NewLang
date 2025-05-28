@@ -8,6 +8,12 @@ function main(args) {
     }
     print("Ready or not, here I come!");
 
+    j = 0;
+    while (j < 10) {
+        j++;
+        print("J:", j);
+    }
+
     testTheStuff();
 
     print("Test complete");
@@ -32,28 +38,28 @@ function testTheStuff() {
     assertStrEq(12, a * b);
     assertStrEq(-1, a - b);
     assertStrEq(0, a / b);
-    
+
     a = a + 0.0;
 
     assertStrEq(7.0, a + b);
     assertStrEq(12.0, a * b);
     assertStrEq(-1.0, a - b);
     assertStrEq(0.75, a / b);
-    
+
     b = b + 0.0;
 
     assertStrEq(7.0, a + b);
     assertStrEq(12.0, a * b);
     assertStrEq(-1.0, a - b);
     assertStrEq(0.75, a / b);
-    
+
     a = floor(a);
 
     assertStrEq(7.0, a + b);
     assertStrEq(12.0, a * b);
     assertStrEq(-1.0, a - b);
     assertStrEq(0.75, a / b);
-    
+
     strWithSpace = ' foo  ';
     assertEq('foo', strWithSpace.trim());
 
