@@ -1,0 +1,6 @@
+import "secondary.newlang";
+
+function main(args) {
+    print("This is the main file.");
+    helperFunction("Hello!");
+}

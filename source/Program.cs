@@ -20,7 +20,7 @@ internal static class Program
     {
         string path = System.IO.Path.GetFullPath(rawPath);
         string content = DiskUtil.ReadTextFile(path);
-        FunctionDefinition[] funcs = FileParser.ParseFile(path, content);
+        FunctionDefinition[] funcs = FileParser.ParseFile(path);
 
         Dictionary<string, FunctionDefinition> funcLookup = new Dictionary<string, FunctionDefinition>();
         foreach (FunctionDefinition fd in funcs)

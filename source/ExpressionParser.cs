@@ -324,7 +324,7 @@ public static class ExpressionParser
         return output;
     }
 
-    private static string ParseStringValueFromToken(Token tok)
+    internal static string ParseStringValueFromToken(Token tok)
     {
         StringBuilder sb = new StringBuilder();
         string rawValue = tok.Value;

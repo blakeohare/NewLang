@@ -1,0 +1,7 @@
+import "./main.newlang"; // This should noop-out.
+import "greeters/greeter.newlang";
+
+function helperFunction(value) {
+    print(getGreeting());
+    print("I am a helper function!", value);
+}

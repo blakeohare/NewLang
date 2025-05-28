@@ -47,7 +47,7 @@ public class ParserException : UserFacingException
             return tok.FileName + " Line " + tok.Line + " Col " + tok.Col + ": ";
       }
 
-      public ParserException(Token token, string msg) : base(TokenToLocInfo(token) + msg)
+      public ParserException(Token? token, string msg) : base(TokenToLocInfo(token) + msg)
       {
       }
 
