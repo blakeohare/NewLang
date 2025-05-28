@@ -1,0 +1,33 @@
+namespace NewLang.Runtime;
+
+public enum ByteCodeOp
+{
+    ASSIGN_VARIABLE,
+    ASSIGN_INDEX,
+    ASSIGN_FIELD,
+    BINARY_OP,
+    BITWISE_NOT,
+    BOOLEAN_NOT,
+    DEFINE_DICTIONARY,
+    DEFINE_LIST, 
+    DOT_FIELD,
+    INDEX,
+    INVOKE_FUNCTION,
+    JUMP,
+    JUMP_IF_FALSE_NO_POP,
+    JUMP_IF_NON_NULL_NO_POP,
+    JUMP_IF_TRUE_NO_POP,
+    NEGATIVE_SIGN,
+    NOOP,
+    POP,
+    POP_AND_JUMP_IF_FALSE,
+    PUSH_ARG,
+    PUSH_BOOL,
+    PUSH_FLOAT,
+    PUSH_INT,
+    PUSH_NULL,
+    PUSH_STRING,
+    PUSH_VALUE,
+    PUSH_VARIABLE,
+    RETURN,
+}
