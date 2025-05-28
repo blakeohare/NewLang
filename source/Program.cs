@@ -13,7 +13,22 @@ internal static class Program
             return;
         }
 
-        MainImpl(args[0]);
+        string file = args[0];
+#if DEBUG
+        MainImpl(file);
+#else
+        try
+        {
+            MainImpl(file);
+        }
+        catch (UserFacingException ufe)
+        {
+            ConsoleColor color = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Error.WriteLine(ufe.Message);
+            Console.ForegroundColor = color;
+        }
+#endif
     }
 
     private static void MainImpl(string rawPath)
