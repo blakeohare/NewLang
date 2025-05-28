@@ -12,6 +12,7 @@ public enum ByteCodeOp
     DEFINE_LIST, 
     DOT_FIELD,
     INDEX,
+    INLINE_INCR_VAR,
     INVOKE_FUNCTION,
     JUMP,
     JUMP_IF_FALSE_NO_POP,

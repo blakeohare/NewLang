@@ -386,6 +386,24 @@ public static class Interpreter
                     frame.ValueStack.Push(outputValue);
                     break;
 
+                case ByteCodeOp.INLINE_INCR_VAR:
+                    if (!frame.LocalVariables.ContainsKey(row.StringValue))
+                    {
+                        throw new RuntimeException(frame, "Variable '" + row.StringValue + "' is not defined.");
+                    }
+
+                    value1 = frame.LocalVariables[row.StringValue];
+                    if (value1.Type != RuntimeType.INTEGER)
+                    {
+                        throw new RuntimeException(frame, "Inline increment operators can only be used on integers.");
+                    }
+
+                    value2 = RuntimeValue.OfInteger((int)value1.Value + row.Args[1]);
+                    frame.ValueStack.Push(row.FirstArg == 1 ? value2 : value1);
+                    frame.LocalVariables[row.StringValue] = value2;
+
+                    break;
+
                 case ByteCodeOp.INVOKE_FUNCTION:
                     int1 = row.FirstArg;
                     args.Clear();

@@ -26,6 +26,16 @@ public class InlineIncrement : Expression
 
     public override ByteCodeBuffer Serialize()
     {
+        if (this.Root is Variable v)
+        {
+            return ByteCodeRow.BufferOf(
+                ByteCodeOp.INLINE_INCR_VAR,
+                this.IncrementToken,
+                v.Name,
+                this.IsPrefix ? 1 : 0,
+                this.IsAddition ? 1 : -1);
+        }
+
         throw new NotImplementedException();
     }
 }

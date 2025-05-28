@@ -13,6 +13,13 @@ function main(args) {
     print("Test complete");
 }
 
+function assertEq(expected, actual) {
+    if (expected != actual) {
+        print("Expected", expected, "but found", actual);
+        fail();
+    }
+}
+
 function testTheStuff() {
     a = 3;
     b = 4;
@@ -61,13 +68,18 @@ function testTheStuff() {
         key3: 3,
     };
 
-
     if (things2['key1'] != 1) fail();
     if (things2['key2'] != 2) fail();
     if (things2['key3'] != 3) fail();
 
     if (things2.get('key4') != null) fail();
     if (things2.get('key4', 5) != 5) fail();
+
+    v = 0;
+    assertEq(0, v++);
+    assertEq(2, ++v);
+    assertEq(2, v--);
+    assertEq(0, --v);
 }
 
 function fail() {
