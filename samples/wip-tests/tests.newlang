@@ -1,0 +1,92 @@
+function main(args) {
+    print("Hello, World!");
+
+    // count(10);
+
+    for (i = 0; i < 10; i = i + 1) {
+        print((i + 1) + " Mississippi...");
+    }
+    print("Ready or not, here I come!");
+
+    testTheStuff();
+
+    print("Test complete");
+}
+
+function testTheStuff() {
+    a = 3;
+    b = 4;
+
+    if (a + b + '' != '7') fail();
+    if (a * b + '' != '12') fail();
+    if (a - b + '' != '-1') fail();
+    if (a / b + '' != '0') fail();
+
+    a = a + 0.0;
+
+    if (a + b + '' != '7.0') fail();
+    if (a * b + '' != '12.0') fail();
+    if (a - b + '' != '-1.0') fail();
+    if (a / b + '' != '0.75') fail();
+
+    b = b + 0.0;
+
+    if (a + b + '' != '7.0') fail();
+    if (a * b + '' != '12.0') fail();
+    if (a - b + '' != '-1.0') fail();
+    if (a / b + '' != '0.75') fail();
+
+    a = floor(a);
+
+    if (a + b + '' != '7.0') fail();
+    if (a * b + '' != '12.0') fail();
+    if (a - b + '' != '-1.0') fail();
+    if (a / b + '' != '0.75') fail();
+
+    strWithSpace = ' foo  ';
+    if (strWithSpace.trim() != 'foo') fail();
+
+    things = [1, 2, 3, "meow"];
+    for (i = 0; i < things.length; i = i + 1) {
+        print("Thing #" + (i + 1) + ":", things[i]);
+    }
+
+    things.add('woof');
+    if (things[4] != 'woof') fail();
+    if (things.length != 5) fail();
+
+    things2 = {
+        'key1': 1,
+        'key2': 2,
+        key3: 3,
+    };
+
+
+    if (things2['key1'] != 1) fail();
+    if (things2['key2'] != 2) fail();
+    if (things2['key3'] != 3) fail();
+
+    if (things2.get('key4') != null) fail();
+    if (things2.get('key4', 5) != 5) fail();
+}
+
+function fail() {
+    print("FAIL!");
+    kaboom(0);
+}
+
+// In the absence of throw, here's a crashing function when you pass in 0.
+// Zero is passed in so as to prevent any future compile-time optimization from
+// turning this into a compile-time error.
+function kaboom(z) {
+    return 1 / z;
+}
+
+function count(n) {
+    print(n);
+    if (n < 1) {
+
+    } else {
+        count(n + -1);
+    }
+}
