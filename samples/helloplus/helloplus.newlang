@@ -1,0 +1,39 @@
+function main(args) {
+    simpleHello();
+
+    print('-' * 30);
+
+    countdown();
+
+    print('-' * 30);
+
+    countupRecursive(10);
+
+    print('-' * 30);
+
+    print("Good-Bye.");
+}
+
+function simpleHello() {
+    print("Hello, World!");
+}
+
+function countdown() {
+    for (i = 10; i >= 1; i = i - 1) {
+        print(i + " Mississippi!");
+    }
+    print("Ready or not, here I come!");
+}
+
+function countupRecursive(target) {
+    countupRecursiveImpl(2, target);
+}
+
+function countupRecursiveImpl(current, target) {
+    if (current >= target) {
+        print("Who do we appreciate"); // Bug: should be "whom"
+    } else {
+        print(current);
+        countupRecursiveImpl(current + 2, target);
+    }
+}
