@@ -17,7 +17,7 @@ public class RuntimeException : UserFacingException
             List<string> lines = [msg, "", "Stack Trace:"];
             for (StackFrame? walker = frame; walker != null; walker = walker.PreviousFrame)
             {
-                  string row = walker.FuncDef.Name + " [" + walker.FuncDef.FirstToken.FileName + "] ";
+                  string row = walker.FuncDef.Name + " [" + walker.FuncDef.FirstToken.FileName + "]";
                   Token traceToken = walker.FuncDef.ByteCode[walker.PC].Token;
                   if (traceToken == null)
                   {

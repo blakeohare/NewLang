@@ -44,6 +44,7 @@ public static class StatementParser
                 case "break": return ParseBreakStatement(tokens);
                 case "continue": return ParseContinueStatement(tokens);
                 case "switch": return ParseSwitchStatement(tokens);
+                case "throw": return ParseThrowStatement(tokens);
             }
         }
 
@@ -150,5 +151,13 @@ public static class StatementParser
     private static Statement ParseSwitchStatement(TokenStream tokens)
     {
         throw new NotImplementedException();
+    }
+
+    private static Statement ParseThrowStatement(TokenStream tokens)
+    {
+        Token throwToken = tokens.PopExpected("throw");
+        Expression thrownExpr = ExpressionParser.ParseExpression(tokens);
+        tokens.PopExpected(";");
+        return new ThrowStatement(throwToken, thrownExpr);
     }
 }

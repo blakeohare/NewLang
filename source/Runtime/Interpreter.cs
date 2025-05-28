@@ -643,6 +643,10 @@ public static class Interpreter
                     byteCode = frame.FuncDef.ByteCode;
                     break;
 
+                case ByteCodeOp.THROW:
+                    str1 = RuntimeValue.ToSimpleString(frame.ValueStack.Pop());
+                    throw new RuntimeException(frame, str1);
+                
                 default:
                     throw new NotImplementedException("OP: " + row.Op);
             }

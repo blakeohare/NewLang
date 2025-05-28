@@ -31,4 +31,5 @@ public enum ByteCodeOp
     PUSH_VALUE,
     PUSH_VARIABLE,
     RETURN,
+    THROW,
 }

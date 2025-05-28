@@ -16,42 +16,46 @@ function main(args) {
 function assertEq(expected, actual) {
     if (expected != actual) {
         print("Expected", expected, "but found", actual);
-        fail();
+        fail("Assertion Failed!");
     }
+}
+
+function assertStrEq(expected, actual) {
+    assertEq(expected + '', actual + '');
 }
 
 function testTheStuff() {
     a = 3;
     b = 4;
 
-    if (a + b + '' != '7') fail();
-    if (a * b + '' != '12') fail();
-    if (a - b + '' != '-1') fail();
-    if (a / b + '' != '0') fail();
-
+    assertStrEq(7, a + b);
+    assertStrEq(12, a * b);
+    assertStrEq(-1, a - b);
+    assertStrEq(0, a / b);
+    
     a = a + 0.0;
 
-    if (a + b + '' != '7.0') fail();
-    if (a * b + '' != '12.0') fail();
-    if (a - b + '' != '-1.0') fail();
-    if (a / b + '' != '0.75') fail();
-
+    assertStrEq(7.0, a + b);
+    assertStrEq(12.0, a * b);
+    assertStrEq(-1.0, a - b);
+    assertStrEq(0.75, a / b);
+    
     b = b + 0.0;
 
-    if (a + b + '' != '7.0') fail();
-    if (a * b + '' != '12.0') fail();
-    if (a - b + '' != '-1.0') fail();
-    if (a / b + '' != '0.75') fail();
-
+    assertStrEq(7.0, a + b);
+    assertStrEq(12.0, a * b);
+    assertStrEq(-1.0, a - b);
+    assertStrEq(0.75, a / b);
+    
     a = floor(a);
 
-    if (a + b + '' != '7.0') fail();
-    if (a * b + '' != '12.0') fail();
-    if (a - b + '' != '-1.0') fail();
-    if (a / b + '' != '0.75') fail();
-
+    assertStrEq(7.0, a + b);
+    assertStrEq(12.0, a * b);
+    assertStrEq(-1.0, a - b);
+    assertStrEq(0.75, a / b);
+    
     strWithSpace = ' foo  ';
-    if (strWithSpace.trim() != 'foo') fail();
+    assertEq('foo', strWithSpace.trim());
 
     things = [1, 2, 3, "meow"];
     for (i = 0; i < things.length; i = i + 1) {
@@ -82,9 +86,8 @@ function testTheStuff() {
     assertEq(0, --v);
 }
 
-function fail() {
-    print("FAIL!");
-    kaboom(0);
+function fail(msg) {
+    throw msg + '';
 }
 
 // In the absence of throw, here's a crashing function when you pass in 0.

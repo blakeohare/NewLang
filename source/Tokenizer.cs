@@ -19,6 +19,7 @@ public class Tokenizer
         "break", "continue",
         "new",
         "import",
+        "throw",
     ];
 
     private static readonly HashSet<string> MULTICHAR_TOKENS =
