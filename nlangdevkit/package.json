@@ -1,0 +1,25 @@
+{
+  "name": "nlangdevkit",
+  "displayName": "nlangdevkit",
+  "description": "Support for NewLang",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "newlang",
+      "aliases": ["NewLang", "newlang"],
+      "extensions": [".newlang"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "newlang",
+      "scopeName": "source.newlang",
+      "path": "./syntaxes/newlang.tmLanguage.json"
+    }]
+  }
+}
