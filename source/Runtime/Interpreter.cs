@@ -370,13 +370,23 @@ public static class Interpreter
                         case TYPE_DICTIONARY * OP_OFFSET + TYPE_STRING:
                             dict1 = (DictImpl)value1.Value;
                             str1 = (string)value2.Value;
-                            found = true;
                             if (!dict1.IsString || !dict1.strLookup.ContainsKey(str1))
                             {
                                 throw new RuntimeException(frame, "Key not found in dictionary.");
                             }
 
                             outputValue = dict1.Values[dict1.strLookup[str1]];
+                            break;
+
+                        case TYPE_DICTIONARY * OP_OFFSET + TYPE_INT:
+                            dict1 = (DictImpl)value1.Value;
+                            int1 = (int)value2.Value;
+                            if (dict1.IsString || !dict1.intLookup.ContainsKey(int1))
+                            {
+                                throw new RuntimeException(frame, "Key not found in dictionary.");
+                            }
+
+                            outputValue = dict1.Values[dict1.intLookup[int1]];
                             break;
 
                         default:
