@@ -9,7 +9,15 @@
   "categories": [
     "Programming Languages"
   ],
+  "main": "./extension.js",
+  "activationEvents": [],
   "contributes": {
+    "commands": [
+      {
+        "command": "nlangdevkit.helloWorld",
+        "title": "New Lang init"
+      }
+    ],
     "languages": [{
       "id": "newlang",
       "aliases": ["NewLang", "newlang"],
